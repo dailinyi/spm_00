@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  
+  <data-sources />
+  <form-beans>
+  
+      <form-bean name="loginForm" type="com.login.LoginForm"></form-bean>
+      
+      <form-bean name="studentLoginForm" type="com.student.StudentLoginForm"></form-bean>
+      
+      <form-bean name="studentRegForm" type="com.student.StudentRegForm"></form-bean>
+      
+      <form-bean name="courseChooseForm" type="com.student.CourseChooseForm"></form-bean>
+      
+      <form-bean name="teacherLoginForm" type="com.teacher.TeacherLoginForm"></form-bean>
+      
+      <form-bean name="teacherRegForm" type="com.teacher.TeacherRegForm"></form-bean>
+      
+       <form-bean name="messageForm" type="com.message.MessageForm"></form-bean>
+      
+      
+      
+  </form-beans>
+  
+  <global-exceptions />
+  
+  <global-forwards>
+      
+  </global-forwards>
+  <action-mappings>
+     <action path="/JSP/login" scope="request"  type="com.login.LoginAction" name="loginForm">  
+            <forward name="loginSuccess" path="/JSP/manage.jsp"></forward>  
+            <forward name="loginFailure" path="/JSP/loginFailure.jsp"></forward>  
+     </action> 
+     
+     <action path="/JSP/studentLogin" scope="request"  type="com.student.StudentLoginAction" name="studentLoginForm">  
+            <forward name="loginSuccess" path="/JSP/stuLoginSucc.jsp"></forward>  
+            <forward name="loginFailure1" path="/JSP/stuLoginFail1.jsp"></forward>  
+            <forward name="loginFailure2" path="/JSP/stuLoginFail2.jsp"></forward>  
+     </action> 
+     
+     <action path="/JSP/studentReg" scope="request"  type="com.student.StudentRegAction" name="studentRegForm">  
+            <forward name="regSuccess" path="/JSP/stuRegSucc.jsp"></forward>  
+            <forward name="regFailure1" path="/JSP/stuRegFail1.jsp"></forward>  
+            <forward name="regFailure2" path="/JSP/stuRegFail2.jsp"></forward>
+            <forward name="regFailure3" path="/JSP/stuRegFail3.jsp"></forward>
+            <forward name="regFailure4" path="/JSP/stuRegFail4.jsp"></forward>
+     </action>
+     
+     <action path="/JSP/courseChoose" scope="request"  type="com.student.CourseChooseAction" name="courseChooseForm">  
+            <forward name="chooseSuccess" path="/JSP/chooseSucc.jsp"></forward>  
+            <forward name="chooseFailure1" path="/JSP/chooseFail1.jsp"></forward>
+            <forward name="chooseFailure2" path="/JSP/chooseFail2.jsp"></forward>
+             
+     </action> 
+     
+     <action path="/JSP/teacherLogin" scope="request"  type="com.teacher.TeacherLoginAction" name="teacherLoginForm">  
+            <forward name="loginSuccess" path="/JSP/teaLoginSucc.jsp"></forward>  
+            <forward name="loginFailure1" path="/JSP/teaLoginFail1.jsp"></forward>  
+            <forward name="loginFailure2" path="/JSP/teaLoginFail2.jsp"></forward> 
+     </action>
+     
+     <action path="/JSP/teacherReg" scope="request"  type="com.teacher.TeacherRegAction" name="teacherRegForm">  
+            <forward name="regSuccess" path="/JSP/teaRegSucc.jsp"></forward>  
+            <forward name="regFailure1" path="/JSP/teaRegFail1.jsp"></forward>  
+            <forward name="regFailure2" path="/JSP/teaRegFail2.jsp"></forward> 
+            <forward name="regFailure3" path="/JSP/teaRegFail3.jsp"></forward> 
+            <forward name="regFailure4" path="/JSP/teaRegFail4.jsp"></forward> 
+     </action>
+     
+     <action path="/JSP/messageAdd" scope="request"  type="com.message.MessageAdd" name="messageForm">  
+            <forward name="addSuccess" path="/JSP/addSucc.jsp"></forward>  
+            <forward name="addFailure" path="/JSP/addSucc.jsp"></forward>  
+     </action>
+     
+     
+     
+ </action-mappings>
+ 
+  <message-resources parameter="com.yourcompany.struts.ApplicationResources" />
+</struts-config>
+

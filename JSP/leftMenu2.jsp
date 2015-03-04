@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>北邮软件学院--软件项目管理</title>
+<script>
+	/*$(document).ready(function(){
+  		$(".sidebar .gadget .sb_menu li").click(function(){
+  			$(".sidebar .gadget .sb_menu li").removeClass("active");
+    		$(this).addClass("active");
+  		});
+	});*/
+</script>
+
+  </head>
+  
+  <body>
+  	<div class="sidebar">
+    	<div class="gadget">
+              <div class="clr"></div>
+        </div>
+        <div class="gadget">
+        	<font size="3" color="#78bbe6"><strong>成绩管理</strong></font>
+            <ul class="sb_menu">
+              <li id="couintro" class="active"><a href="scoreShow.jsp" >成绩显示</a></li>
+              <li id="outline"><a href="scoreNotice.jsp">成绩通知</a></li>
+              <li id="teplan"><a href="scoreAnalyze.jsp">成绩分析</a></li>
+              <li id="char"><a href="warningNotice.jsp">预警通知</a></li>
+            </ul>
+          </div>
+   
+      </div>
+      <div class="clr"></div>
+  </body>
+</html>
