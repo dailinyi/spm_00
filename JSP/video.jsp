@@ -18,6 +18,7 @@ String type = (String)request.getParameter("type");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/css/float.css" rel="stylesheet" type="text/css" />
+<link href="<%=request.getContextPath()%>/css/spm.css" rel="stylesheet" type="text/css" />
 <link href="<%=request.getContextPath()%>/thirdParty/videoJs/video-js.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.3.2.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/js/script.js"></script>
@@ -69,17 +70,19 @@ String type = (String)request.getParameter("type");
         <div class="mainbar">
           <div class="article">
             <div class="clr"></div>
-
+              <!--
               <div id='pop-div' style="width: 500px;height: 400px;top: 300px; " class="pop-box">
                   <video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="500" height="400">
                       <source src="" type='' />
                   </video>
               </div>
               <input type=button id=btnTest  value='test' onclick="popupDiv('pop-div');"/>
-			<table width="600"  cellspacing="0" cellpadding="0" border="0">
+            -->
+			<table width="700"  cellspacing="0" cellpadding="0" border="0">
      	<tbody>
      	  <tr>
      	    <td width="100%" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="5"><center>教学录像</center></font><br/><br/> 
+			<!--
 			 
 		      <table  width="65%"  align="right" cellpadding="1" border="0">
 		      <tbody>
@@ -96,6 +99,68 @@ String type = (String)request.getParameter("type");
 
              </tbody>
              </table> 
+			 -->
+
+			 <table  width="100%"  align="right" cellpadding="1" border="0">
+		      <tbody>
+                    <tr>
+						<td>
+							<ul class="vdlist">
+								<li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+                <li>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <p><span>共1小时20分钟</span>共5集</p>
+                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                </li>
+							</ul>
+						</td>
+					</tr>
+             </tbody>
+             </table>
         
           </td></tr></tbody></table>
             <div class="clr"></div>
