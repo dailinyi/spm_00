@@ -21,4 +21,7 @@ ul,li{list-style: none;}
 .detlist li.on {opacity: 1;}
 .detlist li.on div a,.detlist li.on div a:link,.detlist div li.on a:visited,.detlist div li.on a:active,.detlist div li.on a:hover{background:#428bca ;color:#fff;}
 .detlist li.on a{cursor: pointer;}
-.vdiv{padding:10px;}
+.vdiv{padding:20px;}
+
+.quceshi{text-align: center;padding: 10px 0;line-height: 30px;}
+.quceshi a,.quceshi a:link,.quceshi a:visited,.quceshi a:active,.quceshi a:hover{text-decoration: none;background: #428bca;border-radius:3px;height:30px;padding:0 10px;color:#fff;display: inline-block;}

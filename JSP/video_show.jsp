@@ -32,10 +32,10 @@ String type = (String)request.getParameter("type");
 <script>
    $(function(){
 
-    function tanchuceng(width,height,tit,url,type){
+    function tanchuceng(width,height,tit,url,type,nexturl){
     var winWinth = $(window).width(),winHeight = $(document).height();
     $("body").append("<div class='winbj'></div>");
-    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><video id='example_video_1' class='video-js vjs-default-skin' controls preload='none' width='500' height='400'><source src='"+url+"' type='"+type+"' /></video></div></div>");
+    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><video id='example_video_1' class='video-js vjs-default-skin' controls preload='none' width='500' height='400'><source src='"+url+"' type='"+type+"' /></video></div><div class='quceshi'><a href='"+nexturl+"'>看完了 测试一下</a></div></div>");
     $(".winbj").css({width:winWinth,height:winHeight,background:"#000",position:"absolute",left:"0",top:"0"});
     $(".winbj").fadeTo(0, 0.5);
     var tanchuLeft = $(window).width()/2 - width/2;
@@ -59,20 +59,12 @@ String type = (String)request.getParameter("type");
     });
    }
 
-    $(".detlist li a.vd").click(function(){
+    $(".detlist li a").click(function(){
       if( !$(this).parents("li").hasClass("on") ){
         return false;
       }
       var tantit = $(".dettit em").text() + "--" + $(this).next().find("em").text();
-      tanchuceng(520,450,tantit,$(this).attr("data-url"),$(this).attr("data-type"));
-      return false;
-    });
-
-    $(".detlist li a.yxw").click(function(){
-      if( !$(this).parents("li").hasClass("on") ){
-        return false;
-      }
-      //已学完
+      tanchuceng(540,520,tantit,$(this).parents("li").attr("data-url"),$(this).parents("li").attr("data-type"),$(this).parents("li").attr("data-ceshi"));
       return false;
     });
    })
@@ -101,29 +93,29 @@ String type = (String)request.getParameter("type");
 						<td>
               <div class="dettit"><em>序：软件项目管理概述</em>--共5集</div>
 							<ul class="detlist">
-								<li>
-                  <a class="vd" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">已学完</a><em>第1集</em></div>
+								<li class="on" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" data-ceshi="http://localhost:8080/spm_00/JSP/video_show.jsp">
+                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <div><a class="yxw" href="#">已看完</a><em>第1集</em></div>
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
                 </li>
-                <li class="on">
-                  <a class="vd" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">已学完</a><em>第2集</em></div>
+                <li class="on" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
+                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <div><a class="yxw" href="#">播放</a><em>第2集</em></div>
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
                 </li>
-                <li>
-                  <a class="vd" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">已学完</a><em>第3集</em></div>
+                <li data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
+                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <div><a class="yxw" href="#">播放</a><em>第3集</em></div>
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
                 </li>
-                <li>
-                  <a class="vd" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">已学完</a><em>第4集</em></div>
+                <li data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
+                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <div><a class="yxw" href="#">播放</a><em>第4集</em></div>
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
                 </li>
-                <li>
-                  <a class="vd" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">已学完</a><em>第5集</em></div>
+                <li data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
+                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <div><a class="yxw" href="#">播放</a><em>第5集</em></div>
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
                 </li>
 							</ul>
