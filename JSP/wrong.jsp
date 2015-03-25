@@ -12,14 +12,14 @@
     if(n.equals("1")){ 
     	out.println("1.您没输入用户名密码或邮箱。 2.ID和密码不能超过20字符 "); 
 %>
-    	<a href="login.jsp">点此重新登陆</a>   
+    	<a href="UTest/login.jsp">点此重新登陆</a>
 <% 
     	}    
     else if(n.equals("2")){   
     	out.println("Sorry,登陆失败。 ");    
     	out.println("您输入的用户ID或密码不对哦。 "); 
 %>
-    	<a href="login.jsp">点此重新登陆</a>
+    	<a href="UTest/login.jsp">点此重新登陆</a>
 <% 
      }   
     else{    

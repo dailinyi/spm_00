@@ -26,19 +26,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <div class="main">
   <div class="main_resize">
-    <jsp:include page="top.jsp"/> 
+    <jsp:include page="../top.jsp"/>
     <div class="content">
       <div class="content_bg">
         
 
         <div class="login">
-          <form method="post" action="<%=request.getContextPath()%>/JSP/loginAction.jsp">
+          <form method="post" action="<%=request.getContextPath()%>/JSP/UTest/loginAction.jsp">
             <ul>
               <li>
                 <label>用户名：</label><input type="text" name="uId"/>
               </li>
               <li>
                 <label>密码：</label><input type="password" name="uPwd"/>
+              </li>
+              <li style="color: red">
+                  <%
+                      if("1".equals(request.getParameter("errNo")) ){
+                  %>
+                     账号或密码错误
+                  <%
+                      }else if("2".equals(request.getParameter("errNo"))){
+                  %>
+                     账号不存在
+                  <%
+                      }
+                  %>
               </li>
               <li class="sub">
                 <input type="submit" value="登录"/>
@@ -51,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
       </div>
     </div>
-    <jsp:include page="footer.jsp"/>
+    <jsp:include page="../footer.jsp"/>
     
   </div>
 </div>
