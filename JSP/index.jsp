@@ -164,7 +164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	   <table width="198" border="0" align="right" cellpadding="0" cellspacing="0" valign="top">
        
-        <tr><td><center>已被浏览<font size="6"><%=obj.toString()%></font>次</center></td></tr>
+        <tr><td><center>已被浏览<font size="6"><%=application.getAttribute("count")%></font>次</center></td></tr>
  
         
         <tr> 

@@ -11,6 +11,7 @@
     String uRole = "", uName = "", uCourseStep = "";
     String jsonStr = "{\"retCode\":\"%s\",\"retMsg\":\"%s\",\"uRole\":\"%s\",\"uName\":\"%s\",\"uCourseStep\":\"%s\"}";
     PrintWriter printWriter = null;
+    String appName = request.getContextPath();
 
     try {
         Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -38,14 +39,26 @@
                 //session两小时失效
                 session.setMaxInactiveInterval(7200);
                 System.out.println(session.getAttribute("uId") + "登陆成功！");
+                response.sendRedirect( appName + "/JSP/index.jsp");
+//                request.getRequestDispatcher("/JSP/index.jsp").forward(request,response);
             } else {
                 //密码不对返回到登陆
-//                response.sendRedirect("login.jsp?errNo=1");
+//                request.getRequestDispatcher("/JSP/UTest/login.jsp?errNo=1").forward(request,response);
+                response.sendRedirect( appName + "/JSP/UTest/login.jsp?errNo=1");
             }
 
         } else {
-//            response.sendRedirect("login.jsp?errNo=2");
+            response.sendRedirect( appName + "/JSP/UTest/login.jsp?errNo=2");
         }
+
+        //    jsonStr = String.format(jsonStr, retCode, retMsg, uRole, uName, uCourseStep);
+//
+//    response.setCharacterEncoding("UTF-8");
+//    response.setContentType("application/json; charset=utf-8");
+//
+//    printWriter = response.getWriter();
+//    printWriter.append(jsonStr);
+//    System.out.println("放回数据:" + jsonStr);
 
     } catch (Exception e) {
         retCode = "0500";
@@ -57,14 +70,7 @@
         }
     }
 
-    jsonStr = String.format(jsonStr, retCode, retMsg, uRole, uName, uCourseStep);
 
-    response.setCharacterEncoding("UTF-8");
-    response.setContentType("application/json; charset=utf-8");
-
-    printWriter = response.getWriter();
-    printWriter.append(jsonStr);
-    System.out.println("放回数据:" + jsonStr);
 
 
 %>
