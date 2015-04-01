@@ -1,11 +1,15 @@
 ul,li{list-style: none;}
 .vdlist{width:100%;}
 .vdlist *{margin:0;padding: 0;}
-.vdlist li{float:left;width:210px;height:225px;margin:0 10px;overflow: hidden;}
-.vdlist img{width:200px;height:150px;}
+.vdlist li{float:left;width:210px;height:225px;margin:0 10px;position: relative;z-index: 100;}
+.vdlist img{width:200px;height:150px;border:1px solid #666;padding:4px;}
 .vdlist p{height:24px;line-height: 24px;overflow: hidden;}
 .vdlist p span{float:right;}
 .vdlist h3{height:24px;line-height: 24px;overflow: hidden;}
+.vdlist .jianjie{position: absolute;width:210px;height:138px;top:0;left:209px;display:none;background:#fff;border:1px solid #666;padding:10px;border-left: none;}
+.vdlist .on{z-index: 101;}
+.vdlist .on .jianjie{display:block;line-height: 20px;overflow: hidden;}
+
 .dettit{font:18px/30px "微软雅黑";color:#333;padding-bottom:20px;}
 .dettit em,.detlist em{font-style: normal;}
 
@@ -25,3 +29,11 @@ ul,li{list-style: none;}
 
 .quceshi{text-align: center;padding: 10px 0;line-height: 30px;}
 .quceshi a,.quceshi a:link,.quceshi a:visited,.quceshi a:active,.quceshi a:hover{text-decoration: none;background: #428bca;border-radius:3px;height:30px;padding:0 10px;color:#fff;display: inline-block;}
+
+.awlist{font:16px/30px "微软雅黑";color:#333;}
+.awlist dd{color:#666;}
+.awlist label{margin-right: 20px;}
+
+.dati{text-align: center;}
+.dati a,.dati a:link,.dati a:visited,.dati a:active,.dati a:hover{display:inline-block;text-decoration: none;background: #428bca;color:#fff;border-radius:3px;height:30px;padding:5px 20px;font:16px/30px "微软雅黑";}
+.datino a,.datino a:link,.datino a:visited,.datino a:active,.datino a:hover{background: #e6e6e6;color:#666;}

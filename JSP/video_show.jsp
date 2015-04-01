@@ -32,10 +32,10 @@ String type = (String)request.getParameter("type");
 <script>
    $(function(){
 
-    function tanchuceng(width,height,tit,url,type,nexturl){
+    function tanchuceng(width,height,tit,url,type){
     var winWinth = $(window).width(),winHeight = $(document).height();
     $("body").append("<div class='winbj'></div>");
-    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><video id='example_video_1' class='video-js vjs-default-skin' controls preload='none' width='500' height='400'><source src='"+url+"' type='"+type+"' /></video></div><div class='quceshi'><a href='"+nexturl+"'>看完了 测试一下</a></div></div>");
+    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><video id='example_video_1' class='video-js vjs-default-skin' controls preload='none' width='500' height='400'><source src='"+url+"' type='"+type+"' /></video></div><div class='quceshi' style='display:none'><a href='javascript:'>已看完</a></div></div>");
     $(".winbj").css({width:winWinth,height:winHeight,background:"#000",position:"absolute",left:"0",top:"0"});
     $(".winbj").fadeTo(0, 0.5);
     var tanchuLeft = $(window).width()/2 - width/2;
@@ -64,7 +64,17 @@ String type = (String)request.getParameter("type");
         return false;
       }
       var tantit = $(".dettit em").text() + "--" + $(this).next().find("em").text();
-      tanchuceng(540,520,tantit,$(this).parents("li").attr("data-url"),$(this).parents("li").attr("data-type"),$(this).parents("li").attr("data-ceshi"));
+      tanchuceng(540,520,tantit,$(this).parents("li").attr("data-url"),$(this).parents("li").attr("data-type"));
+      if( player ){
+        player=null;
+      }
+      var player = _V_("example_video_1", {
+          "autoplay": true
+      }, function () {
+          this.on('ended', function () {
+              $(".tanChu .quceshi").show();
+          })
+      });
       return false;
     });
    })
@@ -93,7 +103,7 @@ String type = (String)request.getParameter("type");
 						<td>
               <div class="dettit"><em>序：软件项目管理概述</em>--共5集</div>
 							<ul class="detlist">
-								<li class="on" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg" data-ceshi="http://localhost:8080/spm_00/JSP/video_show.jsp">
+								<li class="on" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
                   <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <div><a class="yxw" href="#">已看完</a><em>第1集</em></div>
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
@@ -119,6 +129,7 @@ String type = (String)request.getParameter("type");
                   <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
                 </li>
 							</ul>
+              <div class="dati datino"><a class="vd" href="#">单元测试</a></div>
 						</td>
 					</tr>
              </tbody>

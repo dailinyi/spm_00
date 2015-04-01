@@ -107,54 +107,64 @@ String type = (String)request.getParameter("type");
 						<td>
 							<ul class="vdlist">
 								<li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                  <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://pic.yesky.com/uploadImages/2014/344/27/8I74V97NEGVG.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
                 <li>
                   <a class="video" href="<%=request.getContextPath()%>/JSP/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
                   <p><span>共1小时20分钟</span>共5集</p>
                   <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
+                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
                 </li>
 							</ul>
 						</td>
@@ -210,6 +220,14 @@ String type = (String)request.getParameter("type");
     }
 
 %>
+
+<script type="text/javascript">
+  $("ul.vdlist li").hover(function(){
+    $(this).addClass("on");
+  },function(){
+    $(this).removeClass("on");
+  });
+</script>
 </body>
 </html>
 
