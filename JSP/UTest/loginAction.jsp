@@ -2,6 +2,7 @@
 <%@ page import="java.sql.*" %>
 <%@ page import="com.bupt.spm.util.MD5Util" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ include file="dbConfig.jsp" %>
 <%
 
     String uid = request.getParameter("uId") != null ? request.getParameter("uId") : "";
@@ -14,11 +15,11 @@
     String appName = request.getContextPath();
 
     try {
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
+        Class.forName(dbDriver).newInstance();
         Connection conn = null;
         PreparedStatement ptmt = null;
         ResultSet rs = null;
-        conn = DriverManager.getConnection("jdbc:mysql://203.171.234.67:3307/meikehuayi", "meikehuayi", "meikehuayi123456");
+        conn = DriverManager.getConnection(dbUrl, dbUser, dbpassword);
         ptmt = conn.prepareStatement("select * from sp_user where u_id = ?");
         ptmt.setString(1, uid);
         rs = ptmt.executeQuery();
