@@ -34,7 +34,7 @@
             <font size="3" color="#78bbe6"><strong>课程内容</strong></font>           
             <ul class="sb_menu">
               <li id="courseware"><a href="courseware.jsp">授课教案</a></li>
-              <li id="video"><a href="video.jsp">教学视频</a></li>
+              <li id="video"><a href="<%=request.getContextPath()%>/JSP/UTest/video.jsp">教学视频</a></li>
               <li id="exercise"><a href="exercise.jsp" target="_blank">练习题</a></li>
               <li id="practice"><a href="practice.jsp">知识点索引</a></li>
               <li id="tools"><a href="tools.jsp">考试大纲</a></li>
