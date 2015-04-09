@@ -109,6 +109,7 @@ String type = (String)request.getParameter("type");
           List<Map<String,Object>> videoList = DBSupportDao.selectList(sql2);
           int uCourseStep = Integer.valueOf(session.getAttribute("uCourseStep").toString());
           System.out.println(session.getAttribute("uId") + "课程进度" +  uCourseStep);
+          boolean showTestButton = true;
 
       %>
   
@@ -138,6 +139,7 @@ String type = (String)request.getParameter("type");
                                         <%
                                             if(uCourseStep+1 == courseStep ){
                                                 out.println("<a class=\"yxw\" href=\"#\">播放</a>");
+                                                showTestButton = false;
                                             }else if(uCourseStep+1 > courseStep){
                                                 out.println("<a class=\"yxw\" href=\"#\">已看完</a>");
                                             }
@@ -151,7 +153,16 @@ String type = (String)request.getParameter("type");
                                     }
                                 %>
 							</ul>
-              <div class="dati datino"><a class="vd" href="#">单元测试</a></div>
+                            <%
+                                String datiClass = "dati";
+                                if(showTestButton){
+                                    datiClass = "dati";
+                                }else{
+                                    datiClass = "dati datino";
+                                }
+                            %>
+                            <div class="<%=datiClass%>"><a class="vd" href="#">单元测试</a></div>
+
 						</td>
 					</tr>
              </tbody>
