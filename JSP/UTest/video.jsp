@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ include file="dbConfig.jsp" %>
+<%@ page import="com.bupt.spm.dao.DBSupportDao" %>
 
- 
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -80,66 +81,31 @@ String type = (String)request.getParameter("type");
                     <tr>
 						<td>
 							<ul class="vdlist">
-								<li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://pic.yesky.com/uploadImages/2014/344/27/8I74V97NEGVG.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
-                <li>
-                  <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <p><span>共1小时20分钟</span>共5集</p>
-                  <p><a class="video" href="<%=request.getContextPath()%>/JSP/video.jsp">序：软件项目管理概述</a></p>
-                  <div class="jianjie">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</div>
-                </li>
+                                <%
+                                    String sql = "SELECT c.chapter_id,c.chapter_name_number,c.chapter_name,c.chapter_pic,c.chapter_desc,\n" +
+                                            "  SUM(cv.video_time) as sum_time,count(*) as video_size\n" +
+                                            " FROM sp_chapter c,sp_chapter_video cv \n" +
+                                            "WHERE c.chapter_id = cv.chapter_id\n" +
+                                            "GROUP BY c.chapter_id,c.chapter_name_number,c.chapter_name,c.chapter_pic,c.chapter_desc\n" +
+                                            "ORDER BY c.chapter_name_number";
+                                    List<Map<String,Object>> chapterList = DBSupportDao.selectList(sql);
+                                    if(null != chapterList && chapterList.size() >0){
+                                        for(Map<String,Object> oneData : chapterList){
+                                %>
+                                <li>
+                                    <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp?chapter_id=<%=oneData.get("chapter_id")%>"><img src="http://pic.yesky.com/uploadImages/2014/344/27/8I74V97NEGVG.jpg" /></a>
+                                    <p><span>共<%=oneData.get("sum_time")%>分钟</span>共<%=oneData.get("video_size")%>集</p>
+                                    <p><a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp?chapter_id=<%=oneData.get("chapter_id")%>">
+                                        第<%=oneData.get("chapter_name_number")%>章&nbsp;&nbsp;
+                                        <%=oneData.get("chapter_name")%>
+                                    </a></p>
+                                    <div class="jianjie"><%=oneData.get("chapter_desc")%></div>
+                                </li>
+                                <%
+                                        }
+                                    }
+                                %>
+
 							</ul>
 						</td>
 					</tr>

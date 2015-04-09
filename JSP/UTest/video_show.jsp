@@ -1,5 +1,5 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ page import="com.bupt.spm.dao.DBSupportDao" %>
  
 <%
 String path = request.getContextPath();
@@ -86,7 +86,31 @@ String type = (String)request.getParameter("type");
   <div class="main_resize">
       
       <jsp:include page="../top.jsp"/>
-      
+      <%
+          //获取章节信息
+          String chapter_id = request.getParameter("chapter_id");
+          String sql1 = "SELECT c.chapter_id,c.chapter_name_number,c.chapter_name,c.chapter_pic,c.chapter_desc,\n" +
+                  "  SUM(cv.video_time) as sum_time,count(*) as video_size\n" +
+                  " FROM sp_chapter c,sp_chapter_video cv \n" +
+                  "WHERE c.chapter_id = cv.chapter_id\n" +
+                  " and c.chapter_id = " + chapter_id +" \n" +
+                  "GROUP BY c.chapter_id,c.chapter_name_number,c.chapter_name,c.chapter_pic,c.chapter_desc\n" ;
+          List<Map<String,Object>> chapterList = DBSupportDao.selectList(sql1);
+          String chapterName = "";
+          String videoSize = "0";
+          if(null != chapterList && chapterList.size() >0){
+              Map<String,Object> chapterResult = chapterList.get(0);
+              chapterName = "第" + chapterResult.get("chapter_name_number") +"章 " + chapterResult.get("chapter_name");
+              videoSize = chapterResult.get("video_size").toString();
+          }
+
+          //获取视频信息
+          String sql2 = "SELECT * FROM sp_chapter_video cv WHERE cv.chapter_id = " + chapter_id + " ORDER BY cv.video_step_order";
+          List<Map<String,Object>> videoList = DBSupportDao.selectList(sql2);
+          int uCourseStep = Integer.valueOf(session.getAttribute("uCourseStep").toString());
+          System.out.println(session.getAttribute("uId") + "课程进度" +  uCourseStep);
+
+      %>
   
     <div class="content">
       <div class="content_bg">
@@ -101,33 +125,31 @@ String type = (String)request.getParameter("type");
 		      <tbody>
                     <tr>
 						<td>
-              <div class="dettit"><em>序：软件项目管理概述</em>--共5集</div>
+              <div class="dettit"><em><%=chapterName%></em>--共<%=videoSize%>集</div>
 							<ul class="detlist">
-								<li class="on" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
-                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">已看完</a><em>第1集</em></div>
-                  <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
-                </li>
-                <li class="on" data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
-                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">播放</a><em>第2集</em></div>
-                  <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
-                </li>
-                <li data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
-                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">播放</a><em>第3集</em></div>
-                  <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
-                </li>
-                <li data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
-                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">播放</a><em>第4集</em></div>
-                  <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
-                </li>
-                <li data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
-                  <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
-                  <div><a class="yxw" href="#">播放</a><em>第5集</em></div>
-                  <p>介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容介绍内容</p>
-                </li>
+                                <%
+                                    if(null != videoList && videoList.size() > 0){
+                                        for(Map<String,Object> oneData : videoList){
+                                            int courseStep = Integer.valueOf(oneData.get("video_step_order").toString());
+                                %>
+                                <li <% if(uCourseStep+1 >= courseStep ) out.println("class=\"on\"");%> data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
+                                    <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                                    <div>
+                                        <%
+                                            if(uCourseStep+1 == courseStep ){
+                                                out.println("<a class=\"yxw\" href=\"#\">播放</a>");
+                                            }else if(uCourseStep+1 > courseStep){
+                                                out.println("<a class=\"yxw\" href=\"#\">已看完</a>");
+                                            }
+                                        %>
+                                        <em><%=oneData.get("video_name_number")%> &nbsp;&nbsp;<%=oneData.get("video_name")%></em>
+                                    </div>
+                                    <p><%=oneData.get("video_desc")%></p>
+                                </li>
+                                <%
+                                        }
+                                    }
+                                %>
 							</ul>
               <div class="dati datino"><a class="vd" href="#">单元测试</a></div>
 						</td>

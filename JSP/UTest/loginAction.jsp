@@ -1,7 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="gb2312" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.bupt.spm.util.MD5Util" %>
 <%@ page import="java.io.PrintWriter" %>
+<%@ page import="com.bupt.spm.util.MD5Util" %>
+
 <%@ include file="dbConfig.jsp" %>
 <%
 
