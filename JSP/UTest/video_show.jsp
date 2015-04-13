@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ page import="com.bupt.spm.dao.DBSupportDao" %>
+<%@ include file="dbConfig.jsp" %>
  
 <%
 String path = request.getContextPath();
@@ -133,8 +134,10 @@ String type = (String)request.getParameter("type");
                                         for(Map<String,Object> oneData : videoList){
                                             int courseStep = Integer.valueOf(oneData.get("video_step_order").toString());
                                 %>
-                                <li <% if(uCourseStep+1 >= courseStep ) out.println("class=\"on\"");%> data-url="http://video-js.zencoder.com/oceans-clip.ogv" data-type="video/ogg">
-                                    <a class="vd" href="#"><img src="http://z3.tuanimg.com/imagev2/site/720x480.16e553ccd027f59fd6356a82f07887ac.312x208.jpg" /></a>
+                                <li <% if(uCourseStep+1 >= courseStep ) out.println("class=\"on\"");%> data-url="<%=path+ UTEST_VIDEO_PATH_PREFIX+oneData.get("video_path")%>" data-type="video/ogg">
+                                    <a class="vd" href="#">
+                                        <img src="<%=path + VIDEO_PIC_PATH_PREFIX + oneData.get("video_pic")%>" />
+                                    </a>
                                     <div>
                                         <%
                                             if(uCourseStep+1 == courseStep ){
@@ -146,7 +149,8 @@ String type = (String)request.getParameter("type");
                                         %>
                                         <em><%=oneData.get("video_name_number")%> &nbsp;&nbsp;<%=oneData.get("video_name")%></em>
                                     </div>
-                                    <p><%=oneData.get("video_desc")%></p>
+                                    <div>时长：<%=oneData.get("video_time")%>分钟</div>
+                                    <p>视频介绍：<%=oneData.get("video_desc")%></p>
                                 </li>
                                 <%
                                         }

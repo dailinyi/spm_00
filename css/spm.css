@@ -21,7 +21,7 @@ ul,li{list-style: none;}
 .detlist div{height:30px;line-height: 30px;overflow: hidden;}
 
 .detlist div a,.detlist div a:link,.detlist div a:visited,.detlist div a:active,.detlist div a:hover{float:right;text-decoration: none;background: #e6e6e6;border-radius:3px;height:30px;padding:0 10px;color:#666;}
-.detlist p{line-height: 24px;overflow: hidden;text-indent: 2em;}
+.detlist p{line-height: 24px;overflow: hidden;}
 
 .detlist li.on {opacity: 1;}
 .detlist li.on div a,.detlist li.on div a:link,.detlist div li.on a:visited,.detlist div li.on a:active,.detlist div li.on a:hover{background:#428bca ;color:#fff;}

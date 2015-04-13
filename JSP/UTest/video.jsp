@@ -93,7 +93,9 @@ String type = (String)request.getParameter("type");
                                         for(Map<String,Object> oneData : chapterList){
                                 %>
                                 <li>
-                                    <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp?chapter_id=<%=oneData.get("chapter_id")%>"><img src="http://pic.yesky.com/uploadImages/2014/344/27/8I74V97NEGVG.jpg" /></a>
+                                    <a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp?chapter_id=<%=oneData.get("chapter_id")%>">
+                                        <img src="<%=path + CHAPTER_PIC_PATH_PREFIX + oneData.get("chapter_pic")%>" />
+                                    </a>
                                     <p><span>共<%=oneData.get("sum_time")%>分钟</span>共<%=oneData.get("video_size")%>集</p>
                                     <p><a class="video" href="<%=request.getContextPath()%>/JSP/UTest/video_show.jsp?chapter_id=<%=oneData.get("chapter_id")%>">
                                         第<%=oneData.get("chapter_name_number")%>章&nbsp;&nbsp;
