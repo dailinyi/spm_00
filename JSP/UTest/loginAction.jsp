@@ -10,7 +10,8 @@
     String pwd = request.getParameter("uPwd") != null ? request.getParameter("uPwd") : "";
     String retCode = "0403";
     String retMsg = "’À∫≈ªÚ√‹¬Î¥ÌŒÛ£°";
-    String uRole = "", uName = "", uCourseStep = "";
+    String uRole = "", uName = "";
+    Integer uCourseStep = 1;
     String jsonStr = "{\"retCode\":\"%s\",\"retMsg\":\"%s\",\"uRole\":\"%s\",\"uName\":\"%s\",\"uCourseStep\":\"%s\"}";
     PrintWriter printWriter = null;
     String appName = request.getContextPath();
@@ -33,7 +34,7 @@
                 retMsg = "µ«¬Ω≥…π¶";
                 uName = rs.getString("u_name");
                 uRole = rs.getString("u_role");
-                uCourseStep = rs.getString("u_course_step");
+                uCourseStep = rs.getInt("u_course_step");
                 session.setAttribute("uId", uid);
                 session.setAttribute("uName",uName);
                 session.setAttribute("uRole", uRole);
