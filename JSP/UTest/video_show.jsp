@@ -165,7 +165,7 @@ String type = (String)request.getParameter("type");
                                     datiClass = "dati datino";
                                 }
                             %>
-                            <div class="<%=datiClass%>"><a class="vd" href="#">单元测试</a></div>
+                            <div class="<%=datiClass%>"><a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a></div>
 
 						</td>
 					</tr>
