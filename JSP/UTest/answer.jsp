@@ -66,7 +66,7 @@
                                                             for(String oneRadion : answers){
                                                                 String[] qq = oneRadion.split(":");
                                                                 if(qq != null && qq.length == 2){
-                                                                    out.println("        <label><input name='aw'" + one.get("id") + " type='radio' value='" + qq[0] + "'>" + qq[1] + "</label>");
+                                                                    out.println("        <label><input name='aw" + one.get("id") + "' type='radio' value='" + qq[0] + "'>" + qq[1] + "</label>");
                                                                 }
                                                             }
 
