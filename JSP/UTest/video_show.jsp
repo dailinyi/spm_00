@@ -60,20 +60,62 @@ String type = (String)request.getParameter("type");
     });
    }
 
-    $(".detlist li a").click(function(){
-      if( !$(this).parents("li").hasClass("on") ){
+
+   function shijiantanchuceng(width,height,tit,url){
+    var winWinth = $(window).width(),winHeight = $(document).height();
+    $("body").append("<div class='winbj'></div>");
+    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><form method='post' action='"+url+"'>上传文件：<input type='file'/></form></div><div class='quceshi' ><a href='javascript:'>提交</a></div></div>");
+    $(".winbj").css({width:winWinth,height:winHeight,background:"#000",position:"absolute",left:"0",top:"0"});
+    $(".winbj").fadeTo(0, 0.5);
+    var tanchuLeft = $(window).width()/2 - width/2;
+    var tanchuTop = $(window).height()/2 - height/2 + $(window).scrollTop();
+    $(".tanChu").css({width:width,height:height,border:"3px #ccc solid",left:tanchuLeft,top:tanchuTop,background:"#fff",position:"absolute"});
+    $(".tanChutit").css({width:width,height:"25px","border-bottom":"1px #ccc solid",background:"#eee","line-height":"25px"});
+    $(".tanchuTxt").css({"text-indent":"5px","float":"left","font-size":"14px"});
+    $(".tanchuClose").css({"width":"40px","float":"right","font-size":"12px","color":"#666","cursor":"pointer"});
+    var winIframeHeight = height - 26;
+    $(".winIframe").css({width:width,height:winIframeHeight,"border-bottom":"1px #ccc solid",background:"#ffffff"});
+    $(".tanchuClose").hover(
+     function(){
+      $(this).css("color","#333");
+     },function(){
+      $(this).css("color","#666");
+     }
+    );
+    $(".tanchuClose").click(function(){
+     $(".winbj").remove();
+     $(".tanChu").remove();
+    });
+   }
+
+    $(".datino .vd").click(function(){
         return false;
-      }
+    });
+
+    $(".dati .sc").click(function(){
+        shijiantanchuceng(400,150,"上传实践",$(this).attr("post-url"));
+        return false;
+    });
+
+    var player=[];
+
+    $(".detlist li a").click(function(){
+      /*if( !$(this).parents("li").hasClass("on") ){
+        return false;
+      }*/
       var tantit = $(".dettit em").text() + "--" + $(this).next().find("em").text();
       tanchuceng(540,520,tantit,$(this).parents("li").attr("data-url"),$(this).parents("li").attr("data-type"));
-      if( player ){
-        player=null;
-      }
-      var player = _V_("example_video_1", {
+      var pvnum = $(this).parents("li").attr("data-num");
+      player[pvnum] = _V_("example_video_1", {
           "autoplay": true
       }, function () {
           this.on('ended', function () {
               $(".tanChu .quceshi").show();
+              $.get("/SPM/JSP/UTest/updateCourseStepAction.jsp?watchCourseStep="+pvnum,function(ret){
+                /*if(ret.retCode == "0000"){
+                    window.location.href = window.location.href;
+                }*/
+              });
           })
       });
       return false;
@@ -134,7 +176,7 @@ String type = (String)request.getParameter("type");
                                         for(Map<String,Object> oneData : videoList){
                                             int courseStep = Integer.valueOf(oneData.get("video_step_order").toString());
                                 %>
-                                <li <% if(uCourseStep+1 >= courseStep ) out.println("class=\"on\"");%> data-url="<%=path+ UTEST_VIDEO_PATH_PREFIX+oneData.get("video_path")%>" data-type="video/ogg">
+                                <li <% if(uCourseStep+1 >= courseStep ) out.println("class=\"on\"");%> data-url="<%=path+ UTEST_VIDEO_PATH_PREFIX+oneData.get("video_path")%>" data-type="video/ogg" data-num="<%=courseStep%>">
                                     <a class="vd" href="#">
                                         <img src="<%=path + VIDEO_PIC_PATH_PREFIX + oneData.get("video_pic")%>" />
                                     </a>
@@ -158,14 +200,18 @@ String type = (String)request.getParameter("type");
                                 %>
 							</ul>
                             <%
-                                String datiClass = "dati";
+                                String datiClass = "dati datino";
                                 if(showTestButton){
                                     datiClass = "dati";
                                 }else{
                                     datiClass = "dati datino";
                                 }
                             %>
-                            <div class="<%=datiClass%>"><a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a></div>
+                            <div class="<%=datiClass%>">
+                                <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
+                                <a post-url="/" class="sc" href="javascript:">上传实践</a>
+                                <a class="cx" href="#">查询成绩</a>
+                            </div>
 
 						</td>
 					</tr>
