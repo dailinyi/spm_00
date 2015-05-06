@@ -93,6 +93,9 @@ String type = (String)request.getParameter("type");
     });
 
     $(".dati .sc").click(function(){
+        if($(this).hasClass("scend")){
+          return false;
+        }
         shijiantanchuceng(400,150,"上传实践",$(this).attr("post-url"));
         return false;
     });
@@ -208,9 +211,9 @@ String type = (String)request.getParameter("type");
                                 }
                             %>
                             <div class="<%=datiClass%>">
+                                <a href="/SPM/JSP/UTest/tabel.jsp">下载课件</a>
+                                <a post-url="/" class="sc scend" href="javascript:">上传实践</a>
                                 <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
-                                <a post-url="/" class="sc" href="javascript:">上传实践</a>
-                                <a class="cx" href="#">查询成绩</a>
                             </div>
 
 						</td>
