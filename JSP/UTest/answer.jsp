@@ -1,6 +1,6 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ page import="com.bupt.spm.dao.DBSupportDao" %>
-
+<%@ include file="dbConfig.jsp" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -44,6 +44,8 @@
             <div class="content_bg">
                 <div class="mainbar">
                     <div class="article">
+                        <form action="answerAction.jsp" method="post">
+                        <input type="hidden" id="chapterId" name="chapterId" value="<%=chapterId%>"/>
                         <table width="700" cellspacing="0" cellpadding="0" border="0">
                             <tbody>
                             <tr>
@@ -66,7 +68,7 @@
                                                             for(String oneRadion : answers){
                                                                 String[] qq = oneRadion.split(":");
                                                                 if(qq != null && qq.length == 2){
-                                                                    out.println("        <label><input name='aw" + one.get("id") + "' type='radio' value='" + qq[0] + "'>" + qq[1] + "</label>");
+                                                                    out.println("        <label><input name='" + QUESTION_RADIO_NAME_PREFIX +  one.get("id") + "' type='radio' value='" + qq[0] + "'>" + qq[1] + "</label>");
                                                                 }
                                                             }
 
@@ -88,6 +90,7 @@
                             </tbody>
                         </table>
                         <div class="clr"></div>
+                        </form>
                     </div>
                 </div>
                 <jsp:include page="../leftMenu.jsp"/>
