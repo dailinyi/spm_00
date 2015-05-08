@@ -1,7 +1,8 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="com.bupt.spm.util.MD5Util" %>
+<%@ page import="com.bupt.spm.dao.DBSupportDao" %>
 
 <%@ include file="dbConfig.jsp" %>
 <%
@@ -9,7 +10,7 @@
     String uid = request.getParameter("uId") != null ? request.getParameter("uId") : "";
     String pwd = request.getParameter("uPwd") != null ? request.getParameter("uPwd") : "";
     String retCode = "0403";
-    String retMsg = "ÕËºÅ»òÃÜÂë´íÎó£¡";
+    String retMsg = "è´¦å·æˆ–å¯†ç é”™è¯¯ï¼";
     String uRole = "", uName = "";
     Integer uCourseStep = 1;
     String jsonStr = "{\"retCode\":\"%s\",\"retMsg\":\"%s\",\"uRole\":\"%s\",\"uName\":\"%s\",\"uCourseStep\":\"%s\"}";
@@ -17,21 +18,21 @@
     String appName = request.getContextPath();
 
     try {
-        Class.forName(dbDriver).newInstance();
+        Class.forName(DBSupportDao.DB_DRIVER).newInstance();
         Connection conn = null;
         PreparedStatement ptmt = null;
         ResultSet rs = null;
-        conn = DriverManager.getConnection(dbUrl, dbUser, dbpassword);
+        conn = DriverManager.getConnection(DBSupportDao.DB_URL, DBSupportDao.DB_USER, DBSupportDao.DB_PASSWORD);
         ptmt = conn.prepareStatement("select * from sp_user where u_id = ?");
         ptmt.setString(1, uid);
         rs = ptmt.executeQuery();
 
         if (rs.next()) {
-            //c´æÔÚÓÃ»§Ãû
-            //ÅÐ¶ÏÃÜÂë
+            //cå­˜åœ¨ç”¨æˆ·å
+            //åˆ¤æ–­å¯†ç 
             if (rs.getString("u_pwd").equals(MD5Util.MD5(pwd))) {
                 retCode = "0000";
-                retMsg = "µÇÂ½³É¹¦";
+                retMsg = "ç™»é™†æˆåŠŸ";
                 uName = rs.getString("u_name");
                 uRole = rs.getString("u_role");
                 uCourseStep = rs.getInt("u_course_step");
@@ -39,13 +40,13 @@
                 session.setAttribute("uName",uName);
                 session.setAttribute("uRole", uRole);
                 session.setAttribute("uCourseStep", uCourseStep);
-                //sessionÁ½Ð¡Ê±Ê§Ð§
+                //sessionä¸¤å°æ—¶å¤±æ•ˆ
                 session.setMaxInactiveInterval(7200);
-                System.out.println(session.getAttribute("uId") + "µÇÂ½³É¹¦£¡");
+                System.out.println(session.getAttribute("uId") + "ç™»é™†æˆåŠŸï¼");
                 response.sendRedirect( appName + "/JSP/index.jsp");
 //                request.getRequestDispatcher("/JSP/index.jsp").forward(request,response);
             } else {
-                //ÃÜÂë²»¶Ô·µ»Øµ½µÇÂ½
+                //å¯†ç ä¸å¯¹è¿”å›žåˆ°ç™»é™†
 //                request.getRequestDispatcher("/JSP/UTest/login.jsp?errNo=1").forward(request,response);
                 response.sendRedirect( appName + "/JSP/UTest/login.jsp?errNo=1");
             }
@@ -61,11 +62,11 @@
 //
 //    printWriter = response.getWriter();
 //    printWriter.append(jsonStr);
-//    System.out.println("·Å»ØÊý¾Ý:" + jsonStr);
+//    System.out.println("æ”¾å›žæ•°æ®:" + jsonStr);
 
     } catch (Exception e) {
         retCode = "0500";
-        retMsg = "ÏµÍ³Òì³££¬ÇëÁªÏµ¹ÜÀíÔ±";
+        retMsg = "ç³»ç»Ÿå¼‚å¸¸ï¼Œè¯·è”ç³»ç®¡ç†å‘˜";
         System.out.print(e);
     } finally {
         if(null != printWriter){

@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="gb2312" %>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8" %>
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="com.bupt.spm.dao.DBSupportDao" %>
 
@@ -6,15 +6,15 @@
 <%
 
     String uid = session.getAttribute("uId") != null ? session.getAttribute("uId").toString() : "";
-    //µ±Ç°¿´µÄ¿Î³Ìstep
+    //å½“å‰çœ‹çš„è¯¾ç¨‹step
     Integer watchCourseStep = request.getParameter("watchCourseStep") != null ? Integer.valueOf(request.getParameter("watchCourseStep")) : 0;
     String retCode = "0403";
-    String retMsg = "´¦ÀíÊ§°Ü£¬ÇëÁªÏµ¿ª·¢ÈËÔ±";
+    String retMsg = "å¤„ç†å¤±è´¥ï¼Œè¯·è”ç³»å¼€å‘äººå‘˜";
     String jsonStr = "{\"retCode\":\"%s\",\"retMsg\":\"%s\"}";
     PrintWriter printWriter = null;
     String appName = request.getContextPath();
 
-    //µ±È¡²»µ½uCourseStep ¸øÒ»¸ö¼«´óÖµ£¬±ÜÃâ³ÌÐòÓÐbug¶øÐÞ¸ÄÊý¾Ý¿â
+    //å½“å–ä¸åˆ°uCourseStep ç»™ä¸€ä¸ªæžå¤§å€¼ï¼Œé¿å…ç¨‹åºæœ‰bugè€Œä¿®æ”¹æ•°æ®åº“
     Integer uCourseStep = session.getAttribute("uCourseStep") != null ? Integer.valueOf(session.getAttribute("uCourseStep").toString()) : Integer.MAX_VALUE;
 
     try {
@@ -24,11 +24,11 @@
             boolean runResult = DBSupportDao.execute(sql);
             System.out.println("run result:" + runResult + "|" + watchCourseStep + "|" + uid);
             retCode = "0000";
-            retMsg = "¸üÐÂ³É¹¦";
+            retMsg = "æ›´æ–°æˆåŠŸ";
             session.setAttribute("uCourseStep", watchCourseStep);
         } else {
             retCode = "0403";
-            retMsg = "µ±Ç°¹Û¿´ÊÓÆµ²»ÐèÒªÐÞ¸ÄÓÃ»§¿Î³Ì½ø¶È";
+            retMsg = "å½“å‰è§‚çœ‹è§†é¢‘ä¸éœ€è¦ä¿®æ”¹ç”¨æˆ·è¯¾ç¨‹è¿›åº¦";
         }
         jsonStr = String.format(jsonStr, retCode, retMsg);
 
@@ -36,7 +36,7 @@
         response.setContentType("application/json; charset=utf-8");
 
         printWriter = response.getWriter();
-        System.out.println("·Å»ØÊý¾Ý:" + jsonStr);
+        System.out.println("æ”¾å›žæ•°æ®:" + jsonStr);
         printWriter.append(jsonStr);
     } catch (Exception e) {
         System.out.print(e);

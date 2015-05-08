@@ -13,10 +13,10 @@ import java.util.Map;
  */
 public class DBSupportDao {
 
-    private static final String DB_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://203.171.234.67:3307/meikehuayi";
-    private static final String DB_USER = "meikehuayi";
-    private static final String DB_PASSWORD = "meikehuayi123456";
+    public static final String DB_DRIVER = "com.mysql.jdbc.Driver";
+    public static final String DB_URL = "jdbc:mysql://203.171.234.67:3307/meikehuayi";
+    public static final String DB_USER = "meikehuayi";
+    public static final String DB_PASSWORD = "meikehuayi123456";
 
     /**
      * 执行简单sql查询，没有事物，自动打开关闭连接，特殊情况或批量查询不要使用此方法

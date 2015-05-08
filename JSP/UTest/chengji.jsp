@@ -29,7 +29,7 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <div class="dettit">答题完成，您这次得分：00分</div>
+                                                <div class="dettit">答题完成，您这次得分：<%=request.getAttribute("userScore")%>分</div>
                                                 <div class="dati">
                                                     <a href="#">重新答题</a> 
                                                     <a href="#">继续学习</a>
