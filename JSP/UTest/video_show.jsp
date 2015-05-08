@@ -96,7 +96,8 @@ String type = (String)request.getParameter("type");
         if($(this).hasClass("scend")){
           return false;
         }
-        shijiantanchuceng(400,150,"上传实践",$(this).attr("post-url"));
+        //shijiantanchuceng(400,150,"上传实践",$(this).attr("post-url"));
+        shijiantanchuceng(400,150,"上传实践",window.location.href);
         return false;
     });
 
@@ -212,13 +213,13 @@ String type = (String)request.getParameter("type");
                                 }
                             %>
                             <div class="<%=datiClass%>">
-                                <a href="/SPM/JSP/UTest/tabel.jsp">下载课件</a>
+                                <a href="#">下载课件</a>
                                 <%
                                     String role = session.getAttribute("uRole").toString();
                                     if("admin".equals(role)){
                                         out.println(" <a href='/SPM/JSP/UTest/dafen.jsp'>实践打分</a>");
                                     }else{
-                                        out.println(" <a post-url='/' class='sc' href='javascript:'>上传实践</a>");
+                                        out.println(" <a post-url='/SPM/JSP/UTest/tabel.jsp' class='sc' href='javascript:'>上传实践</a>");
                                     }
                                 %>
                                 <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
