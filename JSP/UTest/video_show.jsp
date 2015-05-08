@@ -33,10 +33,10 @@ String type = (String)request.getParameter("type");
 <script>
    $(function(){
 
-    function tanchuceng(width,height,tit,url,type){
+    function tanchuceng(width,height,tit,url,type,num){
     var winWinth = $(window).width(),winHeight = $(document).height();
     $("body").append("<div class='winbj'></div>");
-    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><video id='example_video_1' class='video-js vjs-default-skin' controls preload='none' width='500' height='400'><source src='"+url+"' type='"+type+"' /></video></div><div class='quceshi' style='display:none'><a href='javascript:'>已看完</a></div></div>");
+    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><video id='example_video_"+num+"' class='video-js vjs-default-skin' controls preload='none' width='500' height='400'><source src='"+url+"' type='"+type+"' /></video></div><div class='quceshi' style='display:none'><a href='javascript:'>已看完</a></div></div>");
     $(".winbj").css({width:winWinth,height:winHeight,background:"#000",position:"absolute",left:"0",top:"0"});
     $(".winbj").fadeTo(0, 0.5);
     var tanchuLeft = $(window).width()/2 - width/2;
@@ -100,26 +100,27 @@ String type = (String)request.getParameter("type");
         return false;
     });
 
-    var player=[];
+    var vdnum = 0;
 
     $(".detlist li a").click(function(){
       /*if( !$(this).parents("li").hasClass("on") ){
         return false;
       }*/
-      var tantit = $(".dettit em").text() + "--" + $(this).next().find("em").text();
-      tanchuceng(540,520,tantit,$(this).parents("li").attr("data-url"),$(this).parents("li").attr("data-type"));
+      vdnum++;
       var pvnum = $(this).parents("li").attr("data-num");
-      player[pvnum] = _V_("example_video_1", {
-          "autoplay": true
-      }, function () {
-          this.on('ended', function () {
-              $(".tanChu .quceshi").show();
-              $.get("/SPM/JSP/UTest/updateCourseStepAction.jsp?watchCourseStep="+pvnum,function(ret){
-                /*if(ret.retCode == "0000"){
-                    window.location.href = window.location.href;
-                }*/
-              });
-          })
+      var tantit = $(".dettit em").text() + "--" + $(this).next().find("em").text();
+      tanchuceng(540,520,tantit,$(this).parents("li").attr("data-url"),$(this).parents("li").attr("data-type"),vdnum);
+      
+      var player = videojs('example_video_'+vdnum, { /* Options */ }, function() {
+        this.play();
+        this.on('ended', function() {
+          $(".tanChu .quceshi").show();
+            $.get("/SPM/JSP/UTest/updateCourseStepAction.jsp?watchCourseStep="+pvnum,function(ret){
+              /*if(ret.retCode == "0000"){
+                  window.location.href = window.location.href;
+              }*/
+            });
+        });
       });
       return false;
     });
@@ -217,7 +218,7 @@ String type = (String)request.getParameter("type");
                                     if("admin".equals(role)){
                                         out.println(" <a href='/SPM/JSP/UTest/dafen.jsp'>实践打分</a>");
                                     }else{
-                                        out.println(" <a post-url='/' class='sc scend' href='javascript:'>上传实践</a>");
+                                        out.println(" <a post-url='/' class='sc' href='javascript:'>上传实践</a>");
                                     }
                                 %>
                                 <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
