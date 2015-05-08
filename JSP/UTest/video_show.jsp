@@ -64,7 +64,7 @@ String type = (String)request.getParameter("type");
    function shijiantanchuceng(width,height,tit,url){
     var winWinth = $(window).width(),winHeight = $(document).height();
     $("body").append("<div class='winbj'></div>");
-    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><form method='post' action='"+url+"'>上传文件：<input type='file'/></form></div><div class='quceshi' ><a href='javascript:'>提交</a></div></div>");
+    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><form id='scsjform' method='post' action='"+url+"'>上传文件：<input type='file'/></form></div><div class='quceshi' ><a  id='scsja' href='javascript:'>提交</a></div></div>");
     $(".winbj").css({width:winWinth,height:winHeight,background:"#000",position:"absolute",left:"0",top:"0"});
     $(".winbj").fadeTo(0, 0.5);
     var tanchuLeft = $(window).width()/2 - width/2;
@@ -85,6 +85,9 @@ String type = (String)request.getParameter("type");
     $(".tanchuClose").click(function(){
      $(".winbj").remove();
      $(".tanChu").remove();
+    });
+    $("#scsja").click(function(){
+     $("#scsjform").submit();
     });
    }
 
