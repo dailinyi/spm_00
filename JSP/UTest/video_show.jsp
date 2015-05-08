@@ -212,8 +212,14 @@ String type = (String)request.getParameter("type");
                             %>
                             <div class="<%=datiClass%>">
                                 <a href="/SPM/JSP/UTest/tabel.jsp">下载课件</a>
-                                <a post-url="/" class="sc scend" href="javascript:">上传实践</a>
-                                <a href="/SPM/JSP/UTest/dafen.jsp">实践打分</a>
+                                <%
+                                    String role = session.getAttribute("uRole").toString();
+                                    if("admin".equals(role)){
+                                        out.println(" <a href='/SPM/JSP/UTest/dafen.jsp'>实践打分</a>");
+                                    }else{
+                                        out.println(" <a post-url='/' class='sc scend' href='javascript:'>上传实践</a>");
+                                    }
+                                %>
                                 <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
                             </div>
 
