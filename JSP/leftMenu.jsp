@@ -36,6 +36,7 @@
               <li id="courseware"><a href="courseware.jsp">授课教案</a></li>
               <li id="video"><a href="<%=request.getContextPath()%>/JSP/UTest/video.jsp">教学视频</a></li>
               <li id="exercise"><a href="exercise.jsp" target="_blank">练习题</a></li>
+              <li id="score"><a href="UTest/tabel.jsp">成绩查询</a></li>
               <li id="practice"><a href="practice.jsp">知识点索引</a></li>
               <li id="tools"><a href="tools.jsp">考试大纲</a></li>
               <li id="test"><a href="<%=request.getContextPath()%>/Exercise/test.htm" target="_blank">模拟试卷</a></li>

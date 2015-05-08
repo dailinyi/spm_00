@@ -45,46 +45,52 @@
 
                                     <table class="chengji" width="100%" align="center" cellpadding="1" border="0" cellspacing="1">
                                         <tr>
-                                            <th>成绩1</th>
-                                            <th>成绩1</th>
-                                            <th>成绩1</th>
-                                            <th>成绩1</th>
-                                            <th>成绩1</th>
+                                            <th>学号</th>
+                                            <th>姓名</th>
+                                            <th>章节</th>
+                                            <th>单元测试成绩</th>
+                                            <th>实践成绩</th>
+                                            <th>总分</th>
                                         </tr>
                                         <tr>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
+                                            <td>2011212072</td>
+                                            <td>李泠</td>
+                                            <td>第一章</td>
+                                            <td>90</td>
+                                            <td>96</td>
+                                            <td>93</td>
                                         </tr>
                                         <tr>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
+                                            <td>2011212072</td>
+                                            <td>李泠</td>
+                                            <td>第二章</td>
+                                            <td>89</td>
+                                            <td>95</td>
+                                            <td>92</td>
                                         </tr>
                                         <tr>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
+                                            <td>2011212044</td>
+                                            <td>房金鑫</td>
+                                            <td>第一章</td>
+                                            <td>88</td>
+                                            <td>90</td>
+                                            <td>89</td>
                                         </tr>
                                         <tr>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
+                                            <td>2011212044</td>
+                                            <td>房金鑫</td>
+                                            <td>第二章</td>
+                                            <td>94</td>
+                                            <td>92</td>
+                                            <td>93</td>
                                         </tr>
                                         <tr>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
-                                            <td>60</td>
+                                            <td>2011212044</td>
+                                            <td>房金鑫</td>
+                                            <td>第三章</td>
+                                            <td>95</td>
+                                            <td>91</td>
+                                            <td>93</td>
                                         </tr>
                                     </table>
 
