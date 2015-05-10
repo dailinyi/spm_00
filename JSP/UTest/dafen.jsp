@@ -51,65 +51,42 @@
                                             <th>打分</th>
                                         </tr>
                                         <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
+                                            <td>2011212072</td>
+                                            <td>李泠</td>
+                                            <td>实践一</td>
+                                            <td class="daf">96</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2011212072</td>
+                                            <td>李泠</td>
+                                            <td>实践二</td>
+                                            <td class="daf">95</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2011212044</td>
+                                            <td>房金鑫</td>
+                                            <td>实践一</td>
+                                            <td class="daf">90</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2011212044</td>
+                                            <td>房金鑫</td>
+                                            <td>实践二</td>
+                                            <td class="daf">92</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2011212044</td>
+                                            <td>房金鑫</td>
+                                            <td>实践三</td>
+                                            <td class="daf">95</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2011212047</td>
+                                            <td>霍震瑀</td>
+                                            <td>实践一</td>
                                             <td class="daf"><input type="text" value=""/><input type="button" value="打分"/></td>
                                         </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf">30分</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf"><input type="text" value=""/><input type="button" value="打分"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf">30分</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf"><input type="text" value=""/><input type="button" value="打分"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf">30分</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf"><input type="text" value=""/><input type="button" value="打分"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf">30分</td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf"><input type="text" value=""/><input type="button" value="打分"/></td>
-                                        </tr>
-                                        <tr>
-                                            <td>12345</td>
-                                            <td>00</td>
-                                            <td>我想吃饭</td>
-                                            <td class="daf">30分</td>
-                                        </tr>
+
                                     </table>
 
                                     <div class="pagebox">
