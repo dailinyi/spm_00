@@ -10,5 +10,7 @@
 
     final String QUESTION_RADIO_NAME_PREFIX = "aw";
 
+    final int PAGE_SIZE = 2;
+
 
 %>
