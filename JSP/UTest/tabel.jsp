@@ -28,10 +28,12 @@
             whereSql.append(" and s.u_id = '" + queryUID + "'");
         }
     } else {
-        whereSql.append(" and s.u_id = " + uid);
+        whereSql.append(" and s.u_id = '" + uid + "'");
     }
+    whereSql.append(" AND u.u_role != 'admin' ");
 
-    String queryCount = " SELECT count(*) FROM sp_chapter_score s where 1=1 " + whereSql.toString();
+    String queryCount = " SELECT count(*) FROM sp_chapter_score s,sp_user u where 1=1 AND u.u_id = s.u_id" + whereSql.toString();
+    System.out.println(queryCount);
     Integer count = DBSupportDao.selectCount(queryCount.toString());
     int pageCount = 0;
     if (count != null){
@@ -51,14 +53,14 @@
             .append(" LIMIT " + ((queryPage-1) * PAGE_SIZE) + "," + PAGE_SIZE);
 
 
+    System.out.println(querySql.toString());
     List<Map<String,Object>> scoreList = DBSupportDao.selectList(querySql.toString());
 
-    out.print(querySql);
 
 
 //    Integer chapterId = request.getParameter("chapter_id") != null? Integer.valueOf(request.getParameter("chapter_id")):-1;
 //    //查询章节信息
-//    String sql = "SELECT * FROM sp_chapter sc WHERE sc.`chapter_id` = " + chapterId;
+//    String sql = "SELECT * FROM sp_chapter sc WH   ERE sc.`chapter_id` = " + chapterId;
 //    List<Map<String,Object>> chapterList = DBSupportDao.selectList(sql);
 //    Map<String,Object> chapterMap = null;
 //    if(chapterList != null && chapterList.size() > 0){
