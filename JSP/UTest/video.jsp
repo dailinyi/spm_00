@@ -74,7 +74,7 @@ String type = (String)request.getParameter("type");
 			<table width="700"  cellspacing="0" cellpadding="0" border="0">
      	<tbody>
      	  <tr>
-     	    <td width="100%" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="5"><center>教学录像</center></font><br/><br/> 
+     	    <td width="100%" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="5"><center>在线学习</center></font><br/><br/>
 
 			 <table  width="100%"  align="right" cellpadding="1" border="0">
 		      <tbody>

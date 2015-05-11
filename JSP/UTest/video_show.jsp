@@ -123,6 +123,7 @@ String type = (String)request.getParameter("type");
               /*if(ret.retCode == "0000"){
                   window.location.href = window.location.href;
               }*/
+                location.reload();
             });
         });
       });
@@ -220,9 +221,9 @@ String type = (String)request.getParameter("type");
                                 <%
                                     String role = session.getAttribute("uRole").toString();
                                     if("admin".equals(role)){
-                                        out.println(" <a href='/SPM/JSP/UTest/dafen.jsp'>实践打分</a>");
+                                        out.println(" <a href='" + request.getContextPath() + "/JSP/UTest/dafen.jsp'>实践打分</a>");
                                     }else{
-                                        out.println(" <a post-url='/SPM/JSP/UTest/tabel.jsp' class='sc' href='javascript:'>上传实践</a>");
+                                        out.println(" <a post-url='" + request.getContextPath() + "/JSP/UTest/tabel.jsp' class='sc' href='javascript:'>上传实践</a>");
                                     }
                                 %>
                                 <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
