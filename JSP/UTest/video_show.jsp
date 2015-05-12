@@ -3,11 +3,13 @@
 <%@ include file="dbConfig.jsp" %>
  
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
-String src = (String)request.getParameter("src");
-String type = (String)request.getParameter("type");
+    String src = (String)request.getParameter("src");
+    String type = (String)request.getParameter("type");
+
+    String chapter_id = request.getParameter("chapter_id");
 
 %>
 
@@ -64,7 +66,7 @@ String type = (String)request.getParameter("type");
    function shijiantanchuceng(width,height,tit,url){
     var winWinth = $(window).width(),winHeight = $(document).height();
     $("body").append("<div class='winbj'></div>");
-    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><form id='scsjform' method='post' action='"+url+"'>上传文件：<input type='file'/></form></div><div class='quceshi' ><a  id='scsja' href='javascript:'>提交</a></div></div>");
+    $("body").append("<div class='tanChu'><div class='tanChutit'><span class='tanchuTxt'>"+tit+"</span><span class='tanchuClose'>关闭</span></div><div class='vdiv'><form id='scsjform' method='post' enctype='multipart/form-data' action='"+url+"'>上传文件：<input  name='upfile' type='file'/><input id='chapterId' name='chapterId' type='hidden' value='<%=chapter_id%>'><div class='quceshi' ><input type='submit' value='提交'></div></form></div></div>");
     $(".winbj").css({width:winWinth,height:winHeight,background:"#000",position:"absolute",left:"0",top:"0"});
     $(".winbj").fadeTo(0, 0.5);
     var tanchuLeft = $(window).width()/2 - width/2;
@@ -99,8 +101,8 @@ String type = (String)request.getParameter("type");
         if($(this).hasClass("scend")){
           return false;
         }
-        //shijiantanchuceng(400,150,"上传实践",$(this).attr("post-url"));
-        shijiantanchuceng(400,150,"上传实践",window.location.href);
+        shijiantanchuceng(400,150,"上传实践",$(this).attr("post-url"));
+//        shijiantanchuceng(400,150,"上传实践",window.location.href);
         return false;
     });
 
@@ -140,7 +142,6 @@ String type = (String)request.getParameter("type");
       <jsp:include page="../top.jsp"/>
       <%
           //获取章节信息
-          String chapter_id = request.getParameter("chapter_id");
           String sql1 = "SELECT c.chapter_id,c.chapter_name_number,c.chapter_name,c.chapter_pic,c.chapter_desc,\n" +
                   "  SUM(cv.video_time) as sum_time,count(*) as video_size\n" +
                   " FROM sp_chapter c,sp_chapter_video cv \n" +
@@ -223,7 +224,7 @@ String type = (String)request.getParameter("type");
                                     if("admin".equals(role)){
                                         out.println(" <a href='" + request.getContextPath() + "/JSP/UTest/dafen.jsp'>实践打分</a>");
                                     }else{
-                                        out.println(" <a post-url='" + request.getContextPath() + "/JSP/UTest/tabel.jsp' class='sc' href='javascript:'>上传实践</a>");
+                                        out.println(" <a post-url='" + request.getContextPath() + "/JSP/UTest/doUploadAction.jsp?chapterId=" + chapter_id + "' class='sc' href='javascript:'>上传实践</a>");
                                     }
                                 %>
                                 <a class="vd" href="<%=request.getContextPath()%>/JSP/UTest/answer.jsp?chapter_id=<%=chapter_id%>">单元测试</a>
