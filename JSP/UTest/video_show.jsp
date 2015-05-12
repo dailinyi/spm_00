@@ -119,7 +119,7 @@ String type = (String)request.getParameter("type");
         this.play();
         this.on('ended', function() {
           $(".tanChu .quceshi").show();
-            $.get("/SPM/JSP/UTest/updateCourseStepAction.jsp?watchCourseStep="+pvnum,function(ret){
+            $.get("<%=request.getContextPath()%>/JSP/UTest/updateCourseStepAction.jsp?watchCourseStep="+pvnum,function(ret){
               /*if(ret.retCode == "0000"){
                   window.location.href = window.location.href;
               }*/
