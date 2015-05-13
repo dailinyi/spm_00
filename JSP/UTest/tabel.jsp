@@ -43,7 +43,7 @@
 
 
     StringBuilder querySql = new StringBuilder();
-    querySql.append(" SELECT s.*,u.u_name,c.chapter_name_number,90 as subjective_score ")
+    querySql.append(" SELECT s.*,u.u_name,c.chapter_name_number ")
             .append(" FROM sp_chapter_score  s ")
             .append(" LEFT JOIN sp_user u ON u.u_id = s.u_id ")
             .append(" LEFT JOIN sp_chapter c ON c.chapter_id = s.chapter_id ")
@@ -137,18 +137,19 @@
                                         <%
                                             if (scoreList != null && !scoreList.isEmpty()){
                                                 for (Map<String,Object> scoreInfo : scoreList){
-                                                    int chapterScore = Double.valueOf((scoreInfo.get("chapter_score") != null)?scoreInfo.get("chapter_score").toString():"0").intValue();
-                                                    int subjectiveScore = Double.valueOf(scoreInfo.get("subjective_score") != null ? scoreInfo.get("subjective_score").toString() : "0").intValue();
-                                                    int totalScore = (chapterScore + subjectiveScore) / 2;
+                                                    double chapterScore = Double.valueOf((scoreInfo.get("chapter_score") != null) ? scoreInfo.get("chapter_score").toString() : "0");
+                                                    double subjectiveScore = Double.valueOf(scoreInfo.get("subjective_score") != null ? scoreInfo.get("subjective_score").toString() : "0");
+                                                    double totalScore = (chapterScore + subjectiveScore) / 2;
+
 
                                         %>
                                             <tr>
                                                 <td><%=scoreInfo.get("u_id")%></td>
                                                 <td><%=scoreInfo.get("u_name")%></td>
                                                 <td>第<%=scoreInfo.get("chapter_name_number")%>章</td>
-                                                <td><%=chapterScore%></td>
-                                                <td><%=subjectiveScore%></td>
-                                                <td><%=totalScore%></td>
+                                                <td><%=Math.round(chapterScore * 10) / 10%></td>
+                                                <td><%=Math.round(subjectiveScore * 10) / 10%></td>
+                                                <td><%=Math.round(totalScore * 10) / 10%></td>
                                             </tr>
                                         <%
                                                 }
