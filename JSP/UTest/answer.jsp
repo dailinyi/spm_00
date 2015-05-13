@@ -30,6 +30,12 @@
     <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css"/>
     <link href="<%=request.getContextPath()%>/css/float.css" rel="stylesheet" type="text/css"/>
     <link href="<%=request.getContextPath()%>/css/spm.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $(".awlist input").attr("checked",false);
+        })
+    </script>
 
     <!-- CuFon ends -->
 </head>
