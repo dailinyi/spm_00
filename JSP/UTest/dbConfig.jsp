@@ -12,5 +12,7 @@
 
     final int PAGE_SIZE = 2;
 
+    final String CHAPTER_UPLOAD_PRACTICE_PATH_PREFIX = "\\upload\\practice\\";
+
 
 %>
