@@ -17,10 +17,11 @@
 
 <body>
     <div class="header">
-      <div class="hbg"> <img src="<%=request.getContextPath()%>/pic/logo2.jpg" width="641" height="250" alt="header images" />
+      <div class="hbg" style="height: 110px; background: none;"> <!--<img src="<%=request.getContextPath()%>/pic/logo2.jpg" width="641" height="250" alt="header images" />
         <div class="logo">
           <h1><a href="index.jsp">Software Project Management<small><br/>BUPT</small></a></h1>
-        </div>
+        </div>-->
+        <img src="<%=request.getContextPath()%>/pic/banner2.jpg" width="944" alt="header images" />
       </div>
     <div class="menu_nav">
         <ul>
